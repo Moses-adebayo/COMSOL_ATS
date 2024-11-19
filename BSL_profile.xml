@@ -945,7 +945,7 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="visualization">
-    <ParameterList name="NRCS_1000" type="ParameterList">
+    <ParameterList name="domain" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{2190,1,-1}" />
       <Parameter name="times start period stop units" type="string" value="d" />
       <Parameter name="time units" type="string" value="d" />
