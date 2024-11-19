@@ -110,14 +110,14 @@
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value="0" />
+    <Parameter name="start time" type="double" value="2190" />
     <Parameter name="start time units" type="string" value="d" />
     <Parameter name="end time" type="double" value="2434" />
     <Parameter name="end time units" type="string" value="d" />
     <Parameter name="end cycle" type="int" value="10000" />
     <Parameter name="max time step size [s]" type="double" value="86400" />
     <ParameterList name="required times">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 2190, 1,-1}" />
       <Parameter name="times start period stop units" type="string" value="d" />
     </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
@@ -340,7 +340,7 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="hydrostatic head [m]" type="double" value="-5" />
+        <Parameter name="hydrostatic head [m]" type="double" value="-2" />
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000" />
       </ParameterList>
 
@@ -945,18 +945,14 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="visualization">
-    <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop 0" type="Array(double)" value="{0,120,2190}" />
-      <Parameter name="times start period stop 0 units" type="string" value="d" />
-      <Parameter name="times start period stop 1" type="Array(double)" value="{2190,1,-1}" />
-      <Parameter name="times start period stop 1 units" type="string" value="d" />
+    <ParameterList name="NRCS_1000" type="ParameterList">
+      <Parameter name="times start period stop" type="Array(double)" value="{2190,1,-1}" />
+      <Parameter name="times start period stop units" type="string" value="d" />
       <Parameter name="time units" type="string" value="d" />
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop 0" type="Array(double)" value="{0,120,2190}" />
-      <Parameter name="times start period stop 0 units" type="string" value="d" />
-      <Parameter name="times start period stop 1" type="Array(double)" value="{2190,1,-1}" />
-      <Parameter name="times start period stop 1 units" type="string" value="d" />
+      <Parameter name="times start period stop" type="Array(double)" value="{2190,1,-1}" />
+      <Parameter name="times start period stop units" type="string" value="d" />
       <Parameter name="time units" type="string" value="d" />
       <Parameter name="aliased domains" type="Array(string)" value="{snow,canopy}" />
     </ParameterList>
@@ -970,7 +966,7 @@
       <Parameter name="observation output filename" type="string" value="water_balance.dat" />
       <Parameter name="write interval" type="int" value="10" />
       <Parameter name="time units" type="string" value="d" />
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 2190, 1,-1}" />
       <Parameter name="times start period stop units" type="string" value="d" />
       <ParameterList name="observed quantities" type="ParameterList">
         <ParameterList name="surface water content [mol]" type="ParameterList">
