@@ -332,7 +332,7 @@
             <Parameter name="regions" type="Array(string)" value="{right_face}" />
             <ParameterList name="boundary head" type="ParameterList">
 			  <ParameterList name="function-constant">
-				<Parameter name="value" type="double" value="-4"/>
+				<Parameter name="value" type="double" value="-5"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -340,7 +340,7 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="hydrostatic head [m]" type="double" value="-2" />
+        <Parameter name="hydrostatic head [m]" type="double" value="-10" />
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000" />
       </ParameterList>
 
