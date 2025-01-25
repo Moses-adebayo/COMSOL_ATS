@@ -84,6 +84,18 @@
         <Parameter name="normal" type="Array(double)" value="{ 1, 0, 0}" />
       </ParameterList>
     </ParameterList>
+    <ParameterList name="Deciduous_surface" type="ParameterList">
+      <ParameterList name="region: box" type="ParameterList">
+        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{15, 1}" />
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="Open_surface" type="ParameterList">
+      <ParameterList name="region: box" type="ParameterList">
+        <Parameter name="low coordinate" type="Array(double)" value="{ 15, 0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{303, 1}" />
+      </ParameterList>
+    </ParameterList>
     <ParameterList name="GLHYMPS_100" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="100" />
@@ -583,8 +595,19 @@
       <ParameterList name="canopy-leaf_area_index" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
-          <ParameterList name="surface domain" type="ParameterList">
-            <Parameter name="region" type="string" value="surface domain" />
+          <ParameterList name="Deciduous_surface" type="ParameterList">
+            <Parameter name="region" type="string" value="Deciduous_surface" />
+            <Parameter name="component" type="string" value="cell" />
+            <ParameterList name="function" type="ParameterList">
+              <ParameterList name="function-tabular" type="ParameterList">
+                <Parameter name="file" type="string" value="../data/LAI_data.h5" />
+                <Parameter name="x header" type="string" value="time [s]" />
+                <Parameter name="y header" type="string" value="NLCD Deciduous Forest LAI [-]" />
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+          <ParameterList name="Open_surface" type="ParameterList">
+            <Parameter name="region" type="string" value="Open_surface" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
@@ -779,7 +802,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1.26e-13" />
+                <Parameter name="value" type="double" value="2.26e-14" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -891,7 +914,25 @@
       </ParameterList>
 
       <ParameterList name="land cover types" type="ParameterList">
-        <ParameterList name="surface domain" type="ParameterList">
+        <ParameterList name="Deciduous_surface" type="ParameterList">
+          <Parameter name="rooting depth max [m]" type="double" value="10" />
+          <Parameter name="rooting profile alpha [-]" type="double" value=" 6" />
+          <Parameter name="rooting profile beta [-]" type="double" value=" 2" />
+          <Parameter name="maximum xylem capillary pressure [Pa]" type="double" value="2240000" />
+          <Parameter name="leaf on time [doy]" type="double" value="-1" />
+          <Parameter name="leaf off time [doy]" type="double" value="-1" />
+          <Parameter name="Priestley-Taylor alpha of snow [-]" type="double" value="1.26" />
+          <Parameter name="Priestley-Taylor alpha of bare ground [-]" type="double" value="1.26" />
+          <Parameter name="Priestley-Taylor alpha of canopy [-]" type="double" value="1.26" />
+          <Parameter name="Priestley-Taylor alpha of transpiration [-]" type="double" value="1.26" />
+          <Parameter name="albedo of bare ground [-]" type="double" value="0.4" />
+          <Parameter name="emissivity of bare ground [-]" type="double" value="0.98" />
+          <Parameter name="albedo of canopy [-]" type="double" value="0.1" />
+          <Parameter name="Beer's law extinction coefficient, shortwave [-]" type="double" value="0.6" />
+          <Parameter name="Beer's law extinction coefficient, longwave [-]" type="double" value=" 5" />
+          <Parameter name="snow transition depth [m]" type="double" value="0.02" />
+        </ParameterList>
+        <ParameterList name="Open_surface" type="ParameterList">
           <Parameter name="rooting depth max [m]" type="double" value="5" />
           <Parameter name="rooting profile alpha [-]" type="double" value=" 11" />
           <Parameter name="rooting profile beta [-]" type="double" value=" 2" />
@@ -927,7 +968,7 @@
         <ParameterList name="NRCS_1000" type="ParameterList">
           <Parameter name="region" type="string" value="NRCS_1000" />
           <Parameter name="wrm type" type="string" value="van Genuchten" />
-          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="4.9e-04" />
+          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="4.9e-05" />
           <Parameter name="van Genuchten n [-]" type="double" value="1.426455636" />
           <Parameter name="residual saturation [-]" type="double" value="0.229866989" />
           <Parameter name="smoothing interval width [saturation]" type="double" value="0.05" />
