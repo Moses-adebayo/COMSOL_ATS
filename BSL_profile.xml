@@ -1,4 +1,3 @@
-
 <ParameterList name="Main" type="ParameterList">
   <ParameterList name="mesh" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
@@ -105,13 +104,13 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value="0" />
     <Parameter name="start time units" type="string" value="d" />
-    <Parameter name="end time" type="double" value="2434" />
+    <Parameter name="end time" type="double" value="365" />
     <Parameter name="end time units" type="string" value="d" />
     <Parameter name="end cycle" type="int" value="10000" />
     <Parameter name="max time step size [s]" type="double" value="86400" />
     <ParameterList name="required times">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1,-1}" />
-      <Parameter name="times start period stop units" type="string" value="d" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 3600,-1}" />
+      <Parameter name="times start period stop units" type="string" value="s" />
     </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="water_balance" type="ParameterList">
@@ -314,7 +313,7 @@
             <Parameter name="regions" type="Array(string)" value="{left_face}" />
             <ParameterList name="boundary head" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/Water_level.h5" />
+                <Parameter name="file" type="string" value="../data/Water_level_hourly.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="Water_level [m]" />
                 <Parameter name="form" type="Array(string)" value="{linear}" />
@@ -325,7 +324,7 @@
             <Parameter name="regions" type="Array(string)" value="{right_face}" />
             <ParameterList name="boundary head" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/GW_level.h5" />
+                <Parameter name="file" type="string" value="../data/GW_level_hourly.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="Water_level [m]" />
                 <Parameter name="form" type="Array(string)" value="{linear}" />
@@ -336,7 +335,7 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="hydrostatic head [m]" type="double" value="-6" />
+        <Parameter name="hydrostatic head [m]" type="double" value="-2.5" />
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000" />
       </ParameterList>
 
@@ -363,7 +362,7 @@
             <Parameter name="regions" type="Array(string)" value="{surface left}" />
             <ParameterList name="boundary head" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/Water_level.h5" />
+                <Parameter name="file" type="string" value="../data/Water_level_hourly.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="Water_level [m]" />
                 <Parameter name="form" type="Array(string)" value="{linear}" />
@@ -606,7 +605,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/daymet_data.h5" />
+                <Parameter name="file" type="string" value="../data/daymet_data_hourly.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="incoming shortwave radiation [W m^-2]" />
               </ParameterList>
@@ -625,7 +624,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/daymet_data.h5" />
+                <Parameter name="file" type="string" value="../data/daymet_data_hourly.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="precipitation rain [m s^-1]" />
                 <Parameter name="forms" type="string" value="constant" />
@@ -642,7 +641,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/daymet_data.h5" />
+                <Parameter name="file" type="string" value="../data/daymet_data_hourly.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="precipitation snow [m SWE s^-1]" />
                 <Parameter name="forms" type="string" value="constant" />
@@ -659,7 +658,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/daymet_data.h5" />
+                <Parameter name="file" type="string" value="../data/daymet_data_hourly.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="vapor pressure air [Pa]" />
               </ParameterList>
@@ -675,7 +674,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/daymet_data.h5" />
+                <Parameter name="file" type="string" value="../data/daymet_data_hourly.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
                 <Parameter name="y header" type="string" value="air temperature [K]" />
               </ParameterList>
@@ -690,21 +689,10 @@
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-composition" type="ParameterList">
-                <ParameterList name="function2" type="ParameterList">
-                  <ParameterList name="function-linear" type="ParameterList">
-                    <Parameter name="x0" type="Array(double)" value="{86400, 0, 0}" />
-                    <Parameter name="y0" type="double" value=" 0" />
-                    <Parameter name="gradient" type="Array(double)" value="{ 1, 0, 0}" />
-                  </ParameterList>
-                </ParameterList>
-                <ParameterList name="function1" type="ParameterList">
-                  <ParameterList name="function-tabular" type="ParameterList">
-                    <Parameter name="file" type="string" value="../data/daymet_data.h5" />
-                    <Parameter name="x header" type="string" value="time [s]" />
-                    <Parameter name="y header" type="string" value="air temperature [K]" />
-                  </ParameterList>
-                </ParameterList>
+              <ParameterList name="function-tabular" type="ParameterList">
+                <Parameter name="file" type="string" value="../data/daymet_data_hourly.h5" />
+                <Parameter name="x header" type="string" value="time [s]" />
+                <Parameter name="y header" type="string" value="soil temperature [K]" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -914,14 +902,14 @@
   </ParameterList>
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{2190,1,-1}" />
-      <Parameter name="times start period stop units" type="string" value="d" />
-      <Parameter name="time units" type="string" value="d" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0,1,-1}" />
+      <Parameter name="times start period stop units" type="string" value="h" />
+      <Parameter name="time units" type="string" value="h" />
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{2190,1,-1}" />
-      <Parameter name="times start period stop units" type="string" value="d" />
-      <Parameter name="time units" type="string" value="d" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0,1,-1}" />
+      <Parameter name="times start period stop units" type="string" value="h" />
+      <Parameter name="time units" type="string" value="h" />
       <Parameter name="aliased domains" type="Array(string)" value="{snow,canopy}" />
     </ParameterList>
   </ParameterList>
@@ -934,7 +922,7 @@
       <Parameter name="observation output filename" type="string" value="water_balance.dat" />
       <Parameter name="write interval" type="int" value="10" />
       <Parameter name="time units" type="string" value="d" />
-      <Parameter name="times start period stop" type="Array(double)" value="{ 2190, 1,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1,-1}" />
       <Parameter name="times start period stop units" type="string" value="d" />
       <ParameterList name="observed quantities" type="ParameterList">
         <ParameterList name="surface water content [mol]" type="ParameterList">
