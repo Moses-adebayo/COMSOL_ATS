@@ -21,7 +21,7 @@ matches = re.findall(pattern, content)
 
 # Convert matches to integers
 numbers = [int(match) for match in matches]
-loc=pd.read_csv('data/mesh_cnt3.csv').iloc[:,[0,2]]
+loc=pd.read_csv('../data/mesh_cnt3.csv').iloc[:,[0,2]]
 for i in range(len(numbers)):
     fin=loc.copy()
     temp=loc.copy()
