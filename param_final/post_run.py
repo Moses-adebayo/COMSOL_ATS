@@ -70,7 +70,14 @@ k=df1['Perm']
 zeta=-0.00643+0.02085*np.log10(C0)
 df1['Qv']=(E*(-zeta-zeta**3*(((e0) / ( kB * T))**2)/54)*(1 / tau**2) * (phi / k))*pressure['sat']/rel_perm #Soldi et al, 2019
 times=[-1]+list(itertools.accumulate([len(numbers) // 10] * 10 + [len(numbers) % 10]))
-for i in times:
+for i in range(len(numbers)+1):
     filt=df[(df['t']>=times[i]+1)&(df['t']<times[i+1]+1)]
     df1.to_csv('data_set_edit_short'+str(times[i+1]+1)+'.txt',index=False)
-    
+def save_filtered(i):
+    filt = df[(df['t'] >= times[i] + 1) & (df['t'] < times[i+1] + 1)]
+    filename = f"data_set_edit_short{times[i+1] + 1}.txt"
+    filt.to_csv(filename, index=False)
+
+# Run in parallel
+with ThreadPoolExecutor(max_workers=11) as executor:  # adjust workers if needed
+    executor.map(save_filtered, range(len(numbers) + 1))
