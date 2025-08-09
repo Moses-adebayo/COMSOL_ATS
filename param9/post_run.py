@@ -6,7 +6,7 @@ import h5py
 from scipy.optimize import curve_fit
 import os
 import time
-from write_script import write_script
+#from write_script import write_script
 import zipfile
 param=np.loadtxt('../param9.txt') 
 file_path = 'ats_vis_data.VisIt.xmf'
