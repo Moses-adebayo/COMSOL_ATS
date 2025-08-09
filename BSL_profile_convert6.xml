@@ -104,7 +104,7 @@
     <ParameterList name="cycle driver" type="ParameterList">
         <Parameter name="start time" type="double" value=" 0" />
         <Parameter name="start time units" type="string" value="d" />
-        <Parameter name="end time" type="double" value="105" />
+        <Parameter name="end time" type="double" value="314" />
         <Parameter name="end time units" type="string" value="d" />
         <Parameter name="end cycle" type="int" value="10000" />
         <Parameter name="max time step size [s]" type="double" value="86400" />
@@ -754,7 +754,7 @@
                 <Parameter name="component" type="string" value="cell" />
                 <ParameterList name="function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value="1.991446304297797e-12" />
+                    <Parameter name="value" type="double" value="1.246828248496183e-12" />
                 </ParameterList>
                 </ParameterList>
             </ParameterList>
@@ -894,9 +894,9 @@
             <ParameterList name="NRCS_1000" type="ParameterList">
             <Parameter name="region" type="string" value="NRCS_1000" />
             <Parameter name="wrm type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="7.376312417737905e-07" />
-            <Parameter name="van Genuchten n [-]" type="double" value="1.426455636" />
-            <Parameter name="residual saturation [-]" type="double" value="0.229866989" />
+            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="8.61038695954275e-07" />
+            <Parameter name="van Genuchten n [-]" type="double" value="1.9165788053378452" />
+            <Parameter name="residual saturation [-]" type="double" value="0.12956866975170195" />
             <Parameter name="smoothing interval width [saturation]" type="double" value="0.05" />
             <Parameter name="dessicated zone thickness [m]" type="double" value="0.1" />
             </ParameterList>
@@ -906,14 +906,14 @@
     
     <ParameterList name="visualization">
         <ParameterList name="domain" type="ParameterList">
-        <Parameter name="times start period stop" type="Array(double)" value="{ 2000, 1,2499}" />
-        <Parameter name="times start period stop units" type="string" value="h" />
-        <Parameter name="time units" type="string" value="h" />
+        <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1,-1}" />
+        <Parameter name="times start period stop units" type="string" value="d" />
+        <Parameter name="time units" type="string" value="d" />
         </ParameterList>
         <ParameterList name="surface" type="ParameterList">
-        <Parameter name="times start period stop" type="Array(double)" value="{ 2000, 1,2499}" />
-        <Parameter name="times start period stop units" type="string" value="h" />
-        <Parameter name="time units" type="string" value="h" />
+        <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1,-1}" />
+        <Parameter name="times start period stop units" type="string" value="d" />
+        <Parameter name="time units" type="string" value="d" />
         <Parameter name="aliased domains" type="Array(string)" value="{snow,canopy}" />
         </ParameterList>
     </ParameterList>
