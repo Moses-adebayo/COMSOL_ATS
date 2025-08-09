@@ -53,7 +53,7 @@ n_vg=param[2]
 m_vg=(n_vg-1)/n_vg #Soldi et al, 2019
 alpha=param[3]
 pressure['sat']=0
-pressure['sat']=-0.1+(1+abs(alpha*pressure['h'])**n_vg)**-m_vg
+pressure['sat']=(1+abs(alpha*pressure['h'])**n_vg)**-m_vg
 pressure['sat'][pressure['h']>0]=1
 rel_perm=pressure['sat']**0.5*(1-(1-pressure['sat']**(1/m_vg))**m_vg)**2 #Soldi et al, 2019
 #Calculating Qv from REV method
