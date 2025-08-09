@@ -1,5 +1,5 @@
 
-def write_script(perm,alpha,i):
+def write_script(perm,alpha,n,res,i):
     block1 = '''<ParameterList name="Main" type="ParameterList">
     <ParameterList name="mesh" type="ParameterList">
         <ParameterList name="surface" type="ParameterList">
@@ -106,7 +106,7 @@ def write_script(perm,alpha,i):
     <ParameterList name="cycle driver" type="ParameterList">
         <Parameter name="start time" type="double" value=" 0" />
         <Parameter name="start time units" type="string" value="d" />
-        <Parameter name="end time" type="double" value="105" />
+        <Parameter name="end time" type="double" value="314" />
         <Parameter name="end time units" type="string" value="d" />
         <Parameter name="end cycle" type="int" value="10000" />
         <Parameter name="max time step size [s]" type="double" value="86400" />
@@ -900,8 +900,8 @@ def write_script(perm,alpha,i):
             <Parameter name="region" type="string" value="NRCS_1000" />
             <Parameter name="wrm type" type="string" value="van Genuchten" />
             <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="{}" />
-            <Parameter name="van Genuchten n [-]" type="double" value="1.426455636" />
-            <Parameter name="residual saturation [-]" type="double" value="0.229866989" />
+            <Parameter name="van Genuchten n [-]" type="double" value="{}" />
+            <Parameter name="residual saturation [-]" type="double" value="{}" />
             <Parameter name="smoothing interval width [saturation]" type="double" value="0.05" />
             <Parameter name="dessicated zone thickness [m]" type="double" value="0.1" />
             </ParameterList>
@@ -912,14 +912,14 @@ def write_script(perm,alpha,i):
     block5='''
     <ParameterList name="visualization">
         <ParameterList name="domain" type="ParameterList">
-        <Parameter name="times start period stop" type="Array(double)" value="{ 2000, 1,2499}" />
-        <Parameter name="times start period stop units" type="string" value="h" />
-        <Parameter name="time units" type="string" value="h" />
+        <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1,-1}" />
+        <Parameter name="times start period stop units" type="string" value="d" />
+        <Parameter name="time units" type="string" value="d" />
         </ParameterList>
         <ParameterList name="surface" type="ParameterList">
-        <Parameter name="times start period stop" type="Array(double)" value="{ 2000, 1,2499}" />
-        <Parameter name="times start period stop units" type="string" value="h" />
-        <Parameter name="time units" type="string" value="h" />
+        <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1,-1}" />
+        <Parameter name="times start period stop units" type="string" value="d" />
+        <Parameter name="time units" type="string" value="d" />
         <Parameter name="aliased domains" type="Array(string)" value="{snow,canopy}" />
         </ParameterList>
     </ParameterList>
@@ -1067,6 +1067,6 @@ def write_script(perm,alpha,i):
         f.write(block1)
         f.write(block2.format(perm))
         f.write(block3)
-        f.write(block4.format(alpha))
+        f.write(block4.format(alpha, n, res))
         f.write(block5)
 
