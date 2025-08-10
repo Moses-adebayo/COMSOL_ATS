@@ -48,25 +48,7 @@ df1=df.iloc[:,[0,1,7,3,4,2,6,8,5]]
 df1.columns = ['X', 'Z', 't', 'U','W', 'Por','sat','cond','Perm']
 df1['m']=1.5
 df1['Qv']=0
-pressure.h=pressure.h-101325
-n_vg=param[2]
-m_vg=(n_vg-1)/n_vg #Soldi et al, 2019
-alpha=param[3]
-pressure['sat']=0
-pressure['sat']=-0.1+(1+abs(alpha*pressure['h'])**n_vg)**-m_vg
-pressure['sat'][pressure['h']>0]=1
-rel_perm=pressure['sat']**0.5*(1-(1-pressure['sat']**(1/m_vg))**m_vg)**2 #Soldi et al, 2019
-#Calculating Qv from REV method
-e0 = 1.602e-19   # Elementary charge (C)   
-C0=200*1.3e-5 # fluid conc. from 0.02 S/m using eqn from Griffin and Jurinak
-E=80.1*8.854e-12 # F/m
-kB=1.381e-23
-T=273.15+20
-tau=df1["Por"]**(1-df1['m'])
-phi=df1["Por"]
-k=df1['Perm']
-zeta=-0.00643+0.02085*np.log10(C0)
-df1['Qv']=(E*(-zeta-zeta**3*(((e0) / ( kB * T))**2)/54)*(1 / tau**2) * (phi / k))*pressure['sat']/rel_perm #Soldi et al, 2019
+df1['Qv']=param[4]*(E*(-zeta-zeta**3*(((e0) / ( kB * T))**2)/54)*(1 / tau**2) * (phi / k))/df1['sat'] #Soldi et al, 2019
 df1.to_csv('data_set_edit.txt',index=False)
 with zipfile.ZipFile('data_set_edit.zip', 'w',zipfile.ZIP_DEFLATED) as myzip:
     myzip.write('data_set_edit.txt')
