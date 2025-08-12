@@ -104,9 +104,9 @@ def write_script(perm,alpha,n,res,i):
     </ParameterList>
     
     <ParameterList name="cycle driver" type="ParameterList">
-        <Parameter name="start time" type="double" value=" 0" />
+        <Parameter name="start time" type="double" value=" 50" />
         <Parameter name="start time units" type="string" value="d" />
-        <Parameter name="end time" type="double" value="314" />
+        <Parameter name="end time" type="double" value="100" />
         <Parameter name="end time units" type="string" value="d" />
         <Parameter name="end cycle" type="int" value="10000" />
         <Parameter name="max time step size [s]" type="double" value="86400" />
@@ -912,12 +912,12 @@ def write_script(perm,alpha,n,res,i):
     block5='''
     <ParameterList name="visualization">
         <ParameterList name="domain" type="ParameterList">
-        <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1,-1}" />
+        <Parameter name="times start period stop" type="Array(double)" value="{ 50, 1,-1}" />
         <Parameter name="times start period stop units" type="string" value="d" />
         <Parameter name="time units" type="string" value="d" />
         </ParameterList>
         <ParameterList name="surface" type="ParameterList">
-        <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1,-1}" />
+        <Parameter name="times start period stop" type="Array(double)" value="{ 50, 1,-1}" />
         <Parameter name="times start period stop units" type="string" value="d" />
         <Parameter name="time units" type="string" value="d" />
         <Parameter name="aliased domains" type="Array(string)" value="{snow,canopy}" />
@@ -932,7 +932,7 @@ def write_script(perm,alpha,n,res,i):
         <Parameter name="observation output filename" type="string" value="water_balance.dat" />
         <Parameter name="write interval" type="int" value="10" />
         <Parameter name="time units" type="string" value="d" />
-        <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1,-1}" />
+        <Parameter name="times start period stop" type="Array(double)" value="{ 50, 1,-1}" />
         <Parameter name="times start period stop units" type="string" value="d" />
         <ParameterList name="observed quantities" type="ParameterList">
             <ParameterList name="surface water content [mol]" type="ParameterList">
