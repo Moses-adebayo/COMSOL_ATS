@@ -754,7 +754,7 @@
                 <Parameter name="component" type="string" value="cell" />
                 <ParameterList name="function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value="1.7724925478668762e-14" />
+                    <Parameter name="value" type="double" value="5.130309099513166e-13" />
                 </ParameterList>
                 </ParameterList>
             </ParameterList>
@@ -894,9 +894,9 @@
             <ParameterList name="NRCS_1000" type="ParameterList">
             <Parameter name="region" type="string" value="NRCS_1000" />
             <Parameter name="wrm type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="5.06852444220606e-05" />
-            <Parameter name="van Genuchten n [-]" type="double" value="2.26961455819198" />
-            <Parameter name="residual saturation [-]" type="double" value="0.08491456890213633" />
+            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="2.4376853515421695e-05" />
+            <Parameter name="van Genuchten n [-]" type="double" value="2.277394851460319" />
+            <Parameter name="residual saturation [-]" type="double" value="0.07107256517796949" />
             <Parameter name="smoothing interval width [saturation]" type="double" value="0.05" />
             <Parameter name="dessicated zone thickness [m]" type="double" value="0.1" />
             </ParameterList>
