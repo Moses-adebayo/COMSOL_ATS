@@ -122,7 +122,7 @@
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value="0.0"/>
+    <Parameter name="start time" type="double" value="160.0"/>
     <Parameter name="start time units" type="string" value="d"/>
     <Parameter name="end time" type="double" value="365.0"/>
     <Parameter name="end time units" type="string" value="d"/>
@@ -356,10 +356,7 @@
       </ParameterList>
 
       <ParameterList name="initial conditions" type="ParameterList">
-
-        <Parameter name="hydrostatic head [m]" type="double" value="-5.0"/>
-        <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000.0"/>
-
+        <Parameter name="restart file" type="string" value="../data/checkpoint03982.h5"/>
       </ParameterList>
 
     </ParameterList>
@@ -995,22 +992,22 @@
   </ParameterList>
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 1.0, -1.0}"/>
-      <Parameter name="times start period stop units" type="string" value="d"/>
-      <Parameter name="time units" type="string" value="d"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{3840.0, 4.0, 4500.0}"/>
+      <Parameter name="times start period stop units" type="string" value="h"/>
+      <Parameter name="time units" type="string" value="h"/>
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 1.0, -1.0}"/>
-      <Parameter name="times start period stop units" type="string" value="d"/>
-      <Parameter name="time units" type="string" value="d"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{3840.0, 4.0, 4500.0}"/>
+      <Parameter name="times start period stop units" type="string" value="h"/>
+      <Parameter name="time units" type="string" value="h"/>
       <Parameter name="aliased domains" type="Array(string)" value="{snow, canopy}"/>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="checkpoint">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0, 40.0, -1.0}"/>
-    <Parameter name="times start period stop units" type="string" value="d"/>
-    <Parameter name="time units" type="string" value="d"/>
+    <Parameter name="times start period stop" type="Array(double)" value="{3840.0, 4.0, 4500.0}"/>
+    <Parameter name="times start period stop units" type="string" value="h"/>
+    <Parameter name="time units" type="string" value="h"/>
   </ParameterList>
 
   <ParameterList name="observations" type="ParameterList">
