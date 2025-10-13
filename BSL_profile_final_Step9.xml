@@ -357,7 +357,7 @@
 
       <ParameterList name="initial conditions" type="ParameterList">
 
-        <Parameter name="hydrostatic head [m]" type="double" value="-6.0"/>
+        <Parameter name="hydrostatic head [m]" type="double" value="-3.0"/>
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000.0"/>
 
       </ParameterList>
