@@ -337,7 +337,7 @@
             <Parameter name="regions" type="Array(string)" value="{left_face}"/>
             <ParameterList name="boundary head" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/Water_level.h5"/>
+                <Parameter name="file" type="string" value="../data/Water_level_hourly.h5"/>
                 <Parameter name="x header" type="string" value="time [s]"/>
                 <Parameter name="y header" type="string" value="Water_level [m]"/>
                 <Parameter name="form" type="Array(string)" value="{linear}"/>
@@ -385,7 +385,7 @@
             <Parameter name="regions" type="Array(string)" value="{surface left}"/>
             <ParameterList name="boundary head" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/Water_level.h5"/>
+                <Parameter name="file" type="string" value="../data/Water_level_hourly.h5"/>
                 <Parameter name="x header" type="string" value="time [s]"/>
                 <Parameter name="y header" type="string" value="Water_level [m]"/>
                 <Parameter name="form" type="Array(string)" value="{linear}"/>
@@ -646,7 +646,7 @@
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/AORC_data_hourly.h5"/>
+                <Parameter name="file" type="string" value="../data/daymet_data.h5"/>
                 <Parameter name="x header" type="string" value="time [s]"/>
                 <Parameter name="y header" type="string" value="incoming shortwave radiation [W m^-2]"/>
               </ParameterList>
@@ -665,7 +665,7 @@
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/AORC_data_hourly.h5"/>
+                <Parameter name="file" type="string" value="../data/daymet_data.h5"/>
                 <Parameter name="x header" type="string" value="time [s]"/>
                 <Parameter name="y header" type="string" value="precipitation rain [m s^-1]"/>
                 <Parameter name="forms" type="string" value="constant"/>
@@ -682,7 +682,7 @@
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/AORC_data_hourly.h5"/>
+                <Parameter name="file" type="string" value="../data/daymet_data.h5"/>
                 <Parameter name="x header" type="string" value="time [s]"/>
                 <Parameter name="y header" type="string" value="precipitation snow [m SWE s^-1]"/>
                 <Parameter name="forms" type="string" value="constant"/>
@@ -699,7 +699,7 @@
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/AORC_data_hourly.h5"/>
+                <Parameter name="file" type="string" value="../data/daymet_data.h5"/>
                 <Parameter name="x header" type="string" value="time [s]"/>
                 <Parameter name="y header" type="string" value="vapor pressure air [Pa]"/>
               </ParameterList>
@@ -715,7 +715,7 @@
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/AORC_data_hourly.h5"/>
+                <Parameter name="file" type="string" value="../data/daymet_data.h5"/>
                 <Parameter name="x header" type="string" value="time [s]"/>
                 <Parameter name="y header" type="string" value="air temperature [K]"/>
               </ParameterList>
@@ -740,7 +740,7 @@
                 </ParameterList>
                 <ParameterList name="function1" type="ParameterList">
                   <ParameterList name="function-tabular" type="ParameterList">
-                    <Parameter name="file" type="string" value="../data/AORC_data_hourly.h5"/>
+                    <Parameter name="file" type="string" value="../data/daymet_data.h5"/>
                     <Parameter name="x header" type="string" value="time [s]"/>
                     <Parameter name="y header" type="string" value="air temperature [K]"/>
                   </ParameterList>
