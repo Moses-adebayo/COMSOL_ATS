@@ -666,7 +666,7 @@
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
                 <Parameter name="file" type="string" value="../data/daymet_dat.h5"/>
-                <Parameter name="x header" type="string" value="time [s]"/>
+                <Parameter name="x header" type="string" value="time_precip [s]"/>
                 <Parameter name="y header" type="string" value="precipitation rain [m s^-1]"/>
                 <Parameter name="forms" type="string" value="constant"/>
               </ParameterList>
