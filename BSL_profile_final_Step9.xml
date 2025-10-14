@@ -337,7 +337,7 @@
             <Parameter name="regions" type="Array(string)" value="{left_face}"/>
             <ParameterList name="boundary head" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/Water_level_hourly.h5"/>
+                <Parameter name="file" type="string" value="../data/Water_level.h5"/>
                 <Parameter name="x header" type="string" value="time [s]"/>
                 <Parameter name="y header" type="string" value="Water_level [m]"/>
                 <Parameter name="form" type="Array(string)" value="{linear}"/>
@@ -385,7 +385,7 @@
             <Parameter name="regions" type="Array(string)" value="{surface left}"/>
             <ParameterList name="boundary head" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/Water_level_hourly.h5"/>
+                <Parameter name="file" type="string" value="../data/Water_level.h5"/>
                 <Parameter name="x header" type="string" value="time [s]"/>
                 <Parameter name="y header" type="string" value="Water_level [m]"/>
                 <Parameter name="form" type="Array(string)" value="{linear}"/>
