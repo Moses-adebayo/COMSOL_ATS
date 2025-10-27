@@ -43,7 +43,7 @@ for i in range(len(numbers)):
 #Assign homogeneous resistivity from field data
 df=out.copy()
 df['cond']=0
-df['cond'][df["porosity"]>=0.1]=1/40# 40 original used
+df['cond'][df["porosity"]>=0.1]=1/param[3]# 40 original used
 df['cond'][df["porosity"]<0.1]=1/800
 df1=df.iloc[:,[0,1,6,3,4,2,5,7]]
 df1.columns = ['X', 'Z', 't', 'U','W', 'Por','sat','cond']
@@ -55,6 +55,7 @@ df1['Qv']=0
 #Calculating Qv from REV method
 df1['Qv']=param[2]/df1['sat']
 df1=df1[df1.t<244]
+df1=df1[df1.t>80]
 df1.to_csv('data_set_edit.txt',index=False)
 with zipfile.ZipFile('data_set_edit.zip', 'w',zipfile.ZIP_DEFLATED) as myzip:
     myzip.write('data_set_edit.txt')
