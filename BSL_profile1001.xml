@@ -941,6 +941,10 @@
         <Parameter name="model parameters" type="string" value="WRM parameters"/>
         <Parameter name="evaluator type" type="string" value="water retention model"/>
       </ParameterList>
+      <ParameterList name="computational domain-capillary_pressure_gas_liq" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid"/>
+        <Parameter name="units" type="string" value="Pa"/>
+      </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 
