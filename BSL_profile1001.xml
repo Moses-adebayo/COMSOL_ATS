@@ -72,6 +72,12 @@
         <Parameter name="normal" type="Array(double)" value="{1.0, 0.0}"/>
       </ParameterList>
     </ParameterList>
+    <ParameterList name="surface boundary2" type="ParameterList">
+      <ParameterList name="region: plane" type="ParameterList">
+        <Parameter name="point" type="Array(double)" value="{0.0, 0.0}"/>
+        <Parameter name="normal" type="Array(double)" value="{1.0, 0.0}"/>
+      </ParameterList>
+    </ParameterList>
     <ParameterList name="left_face" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
         <Parameter name="point" type="Array(double)" value="{0.0, 0.0, 0.0}"/>
@@ -1054,6 +1060,14 @@
           <Parameter name="variable" type="string" value="surface-water_flux"/>
           <Parameter name="direction normalized flux" type="bool" value="true"/>
           <Parameter name="region" type="string" value="surface boundary"/>
+          <Parameter name="functional" type="string" value="extensive integral"/>
+          <Parameter name="location name" type="string" value="face"/>
+          <Parameter name="time integrated" type="bool" value="true"/>
+        </ParameterList>
+        <ParameterList name="runoff generation2 [mol d^-1]" type="ParameterList">
+          <Parameter name="variable" type="string" value="surface-water_flux"/>
+          <Parameter name="direction normalized flux" type="bool" value="true"/>
+          <Parameter name="region" type="string" value="surface boundary2"/>
           <Parameter name="functional" type="string" value="extensive integral"/>
           <Parameter name="location name" type="string" value="face"/>
           <Parameter name="time integrated" type="bool" value="true"/>
