@@ -1194,7 +1194,7 @@
           <Parameter name="time integrated" type="bool" value="true"/>
         </ParameterList>
         <ParameterList name="depth_WL [m]" type="ParameterList">
-          <Parameter name="variable" type="string" value="water table depth"/>
+          <Parameter name="variable" type="string" value="water_table"/>
           <Parameter name="region" type="string" value="WL"/>
           <Parameter name="functional" type="string" value="average" />
           <Parameter name="location name" type="string" value="cell" />
