@@ -437,7 +437,7 @@
       </ParameterList>
       <ParameterList name="water_table" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="water table depth"/>
-        <Parameter name="dependencies" type="Array(string)" value="{computational domain-saturation-gas, computational domain-pressure, computational domain-cell_volume, domain-cell_volume}"/>
+        <Parameter name="subsurface domain name" type="string" value="computational domain"/>
         <Parameter name="units" type="string" value="m"/>
         <Parameter name="interpolate depth from pressure" type="bool" value="true" />
       </ParameterList>      
