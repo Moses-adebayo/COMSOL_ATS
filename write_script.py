@@ -1176,4 +1176,4 @@ def write_script(perm1,perm2,alpha,n,res,i):
         f.write(block2.format(perm1, perm2, perm2))
         f.write(block3)
         f.write(block4.format(alpha,n,res,alpha,n,res))
-        f.write(block4)
+        f.write(block5)
