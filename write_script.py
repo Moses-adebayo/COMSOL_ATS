@@ -1,4 +1,4 @@
-def write_script(perm1,perm2,i):
+def write_script(perm1,perm2,alpha,n,res,i):
     block1 = '''
 <ParameterList name="Main" type="ParameterList">
   <ParameterList name="mesh" type="ParameterList">
@@ -124,9 +124,9 @@ def write_script(perm1,perm2,i):
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value="0.0"/>
+    <Parameter name="start time" type="double" value="150.0"/>
     <Parameter name="start time units" type="string" value="d"/>
-    <Parameter name="end time" type="double" value="245.0"/>
+    <Parameter name="end time" type="double" value="365.0"/>
     <Parameter name="end time units" type="string" value="d"/>
     <Parameter name="end cycle" type="int" value="10000"/>
     <Parameter name="max time step size [s]" type="double" value="86400.0"/>
@@ -930,6 +930,8 @@ def write_script(perm1,perm2,i):
       </ParameterList>
 
     </ParameterList>
+        '''
+    block4='''
     <ParameterList name="model parameters" type="ParameterList">
       <ParameterList name="WRM parameters" type="ParameterList">
         <ParameterList name="GLHYMPS_100" type="ParameterList">
@@ -944,22 +946,24 @@ def write_script(perm1,perm2,i):
         <ParameterList name="NRCS_1000" type="ParameterList">
           <Parameter name="region" type="string" value="NRCS_1000"/>
           <Parameter name="wrm type" type="string" value="van Genuchten"/>
-          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.000049"/>
-          <Parameter name="van Genuchten n [-]" type="double" value="1.426455636"/>
-          <Parameter name="residual saturation [-]" type="double" value="0.229866989"/>
+          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="{}"/>
+          <Parameter name="van Genuchten n [-]" type="double" value="{}"/>
+          <Parameter name="residual saturation [-]" type="double" value="{}"/>
           <Parameter name="smoothing interval width [saturation]" type="double" value="0.05"/>
           <Parameter name="dessicated zone thickness [m]" type="double" value="0.1"/>
         </ParameterList>
         <ParameterList name="NRCS_1001" type="ParameterList">
           <Parameter name="region" type="string" value="NRCS_1001"/>
           <Parameter name="wrm type" type="string" value="van Genuchten"/>
-          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.000049"/>
-          <Parameter name="van Genuchten n [-]" type="double" value="1.240693975"/>
-          <Parameter name="residual saturation [-]" type="double" value="0.311210306"/>
+          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="{}"/>
+          <Parameter name="van Genuchten n [-]" type="double" value="{}"/>
+          <Parameter name="residual saturation [-]" type="double" value="{}"/>
           <Parameter name="smoothing interval width [saturation]" type="double" value="0.05"/>
           <Parameter name="dessicated zone thickness [m]" type="double" value="0.1"/>
         </ParameterList>
       </ParameterList>
+        '''
+    block5='''
       <ParameterList name="land cover types" type="ParameterList">
         <ParameterList name="Deciduous_surface" type="ParameterList">
           <Parameter name="rooting depth max [m]" type="double" value="10.0"/>
@@ -1003,20 +1007,14 @@ def write_script(perm1,perm2,i):
   </ParameterList>
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 1.0, -1.0}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{170.0, 1.0, 364}"/>
       <Parameter name="times start period stop units" type="string" value="d"/>
       <Parameter name="time units" type="string" value="d"/>
-    </ParameterList>
-    <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 1.0, -1.0}"/>
-      <Parameter name="times start period stop units" type="string" value="d"/>
-      <Parameter name="time units" type="string" value="d"/>
-      <Parameter name="aliased domains" type="Array(string)" value="{snow, canopy}"/>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="checkpoint">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0, 40.0, -1.0}"/>
+    <Parameter name="times start period stop" type="Array(double)" value="{180.0, 100.0, -1.0}"/>
     <Parameter name="times start period stop units" type="string" value="d"/>
     <Parameter name="time units" type="string" value="d"/>
   </ParameterList>
@@ -1177,3 +1175,5 @@ def write_script(perm1,perm2,i):
         f.write(block1)
         f.write(block2.format(perm1, perm2, perm2))
         f.write(block3)
+        f.write(block4.format(alpha,n,res,alpha,n,res))
+        f.write(block4)
