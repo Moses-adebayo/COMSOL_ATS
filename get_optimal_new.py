@@ -60,7 +60,7 @@ s_temp[:, 3] = np.log((data1[:, 3] - para_l[3]) / (para_u[3] - data1[:, 3]))
 s_temp[:, 4] = np.log((data1[:, 4] - para_l[4]) / (para_u[4] - data1[:, 4]))
 #s_temp=loadmat('../../s_tem3.mat')['s_tem'] #useful for restarting the inversion if it crashed for some reasons, else comment out
 s[:,:,0]=s_temp
-savemat('./s_tem' + str(t) + '.mat', {'s_tem':s[:,:,0]}) # save s for each step
+savemat('./s_tem0.mat', {'s_tem':s[:,:,0]}) # save s for each step
 write=10**(data1.copy())
 for i in range (Num_ens):
     write_script(write[i][0],write[i][1],write[i][2],write[i][3],write[i][4],i+1)
