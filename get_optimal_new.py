@@ -22,7 +22,7 @@ def forward(Num_ens):
         visfile = xdmf.VisFile('param'+str(i+1), domain=None, load_mesh=True, columnar=True, ats_version=1.6)
         ihead = pv.plot_column_head(visfile, col_ind = 14)
         
-        data.append(ihead.values-260.867)
+        data.append(ihead.values.ravel()-260.867)
     return np.vstack(data)
 # initialization
 Num_ens=10
@@ -60,24 +60,35 @@ s_temp[:, 3] = np.log((data1[:, 3] - para_l[3]) / (para_u[3] - data1[:, 3]))
 s_temp[:, 4] = np.log((data1[:, 4] - para_l[4]) / (para_u[4] - data1[:, 4]))
 #s_temp=loadmat('../../s_tem3.mat')['s_tem'] #useful for restarting the inversion if it crashed for some reasons, else comment out
 s[:,:,0]=s_temp
-savemat('./s_tem0.mat', {'s_tem':s[:,:,0]}) # save s for each step
-write=10**(data1.copy())
-for i in range (Num_ens):
-    write_script(write[i][0],write[i][1],write[i][2],write[i][3],write[i][4],i+1)
-    np.savetxt('param'+str(i+1)+'.txt',write[i])
-os.chdir('data/')
-subprocess.run(['sbatch', 'run_ensemble.sh'])
-subprocess.run(['sbatch', 'run_ensemble2.sh'])
-os.chdir('../')
-while True:
-    exist=os.path.exists('param10/checkpoint_final.h5')
-    if exist:
-        print('final checkpoint found.....proceed')
-        break
-    else:
-        time.sleep(600)
-os.remove('param10/checkpoint_final.h5')
-for i in range(len(Alpha)):
+
+###continuing with s_tem2, crashed at iter.2
+s[:,:,0]=loadmat('s_tem0.mat')['s_tem']
+s[:,:,1]=loadmat('s_tem1.mat')['s_tem']
+s[:,:,2]=loadmat('s_tem2.mat')['s_tem']
+##commenting below out temporarily
+
+#savemat('./s_tem0.mat', {'s_tem':s[:,:,0]}) # save s for each step
+#write=10**(data1.copy())
+#for i in range (Num_ens):
+#    write_script(write[i][0],write[i][1],write[i][2],write[i][3],write[i][4],i+1)
+#    np.savetxt('param'+str(i+1)+'.txt',write[i])
+#os.chdir('data/')
+#subprocess.run(['sbatch', 'run_ensemble.sh'])
+#subprocess.run(['sbatch', 'run_ensemble2.sh'])
+#os.chdir('../')
+#while True:
+#    exist=all(os.path.exists(f'param{i}/checkpoint_final.h5') for i in range(1, 11))
+#    if exist:
+#        print('all checkpoints found.....proceed')
+#        break
+#    else:
+#        time.sleep(600)
+#for i in range(1, 11):
+#    os.remove(f'param{i}/checkpoint_final.h5')
+for t in range(len(Alpha)):
+    #remove these afterwards
+    if t<2:
+        continue
     sim_obs= forward(Num_ens)# shape of sim_obs (Num_ens,Num_obs)# combine from param1 to param10
     np.savetxt('./sim_obs' + str(t) + '.txt', np.mean(sim_obs,axis=0))
     
@@ -118,14 +129,15 @@ for i in range(len(Alpha)):
     subprocess.run(['sbatch', 'run_ensemble2.sh'])
     os.chdir('../')
     while True:
-        exist=os.path.exists('param10/checkpoint_final.h5')
+        exist=all(os.path.exists(f'param{i}/checkpoint_final.h5') for i in range(1, 11))
         if exist:
-            print('final checkpoint found.....proceed')
+            print('all checkpoints found.....proceed')
             break
         else:
             time.sleep(600)
-    os.remove('param10/checkpoint_final.h5')
-    print('end of iteration '+str(i+1))
+    for i in range (1,11):
+        os.remove(f'param{i}/checkpoint_final.h5')
+    print('end of iteration '+str(t+1))
 t =len(Alpha)+1
 sim_obs= forward(Num_ens)# shape of sim_obs (Num_ens,Num_obs)# combine from param1 to param10
 np.savetxt('./sim_obs' + str(t) + '.txt', np.mean(sim_obs,axis=0))
